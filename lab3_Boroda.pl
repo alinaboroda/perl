@@ -24,13 +24,15 @@ if (defined $ARGV[1]) {
 
 open (my $fh, "<", "/etc/services") or die "Can't open file!\n";
 my %port_serv;
-while (<$fh>) {
-    chomp;
-    next unless ($_);
-    next if ((index $_, '#') eq  "0");
-    my @arr = split ' ', $_;
-    $port_serv{(split '/', $arr[1])[0]} = $arr[0];
-} if ($first_port and $last_port);
+if ($first_port and $last_port) {
+    while (<$fh>) {
+        chomp;
+        next unless ($_);
+        next if ((index $_, '#') eq  "0");
+        my @arr = split ' ', $_;
+        $port_serv{(split '/', $arr[1])[0]} = $arr[0];
+    } 
+}
 
 for (my $i = $first_port; $i <= $last_port; $i++) {
     print $i . " - " . $port_serv{$i} . "\n" if ($port_serv{$i});
