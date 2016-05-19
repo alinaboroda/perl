@@ -11,20 +11,22 @@ while (<>) {
     }
 }
 
-my @keysSort = (sort {$chars{$b} <=> $chars{$a}} keys %chars);
+my @sortKeys = (sort {$chars{$b} <=> $chars{$a}} keys %chars);
 
-for my $item (@keysSort) {
-    if ($chars{$keysSort[0]} == $chars{$item}) {
-        print "The most: " . $item . ' - ' . $chars{$item} . "\n";
+print "The most number is $chars{$sortKeys[0]}:\n";
+for my $char (@sortKeys) {
+    if ($chars{$sortKeys[0]} == $chars{$char}) {
+        print $char  . "\n";
     } else {
         last;
     }
 }
 
-if ($chars{$keysSort[-1]} != $chars{$keysSort[0]}) {
-    for my $item (reverse @keysSort) {
-        if ($chars{$keysSort[-1]} == $chars{$item}) {
-            print "The less: " . $item . ' - ' . $chars{$item} . "\n";
+if ($chars{$sortKeys[-1]} != $chars{$sortKeys[0]}) {
+    print "The less number is $chars{$sortKeys[-1]}:\n";
+    for my $char (reverse @sortKeys) {
+        if ($chars{$sortKeys[-1]} == $chars{$char}) {
+            print $char . "\n";
         } else {
             last;
         }
