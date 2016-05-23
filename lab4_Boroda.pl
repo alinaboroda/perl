@@ -26,6 +26,6 @@ while (<$fh>) {
         $loss = (split ' ', $ping[1])[5];
         $max_time = (split '/', (split ' ', $ping[2])[3])[2];
         print "$ip: max_time = $max_time; $loss of loss;\n\n";
-        print $fo `date` . "$ip: max_time = $max_time; $loss of loss;\n" if (defined $outputFile);
+        print $fo `date` . "$ip: max_time = $max_time; $loss of loss;\n\n" if (defined $outputFile);
     }
 }
