@@ -2,10 +2,10 @@
 
 use strict;
 
-my %chars;
+my (%chars, $removed);
 while (<>) {
-    chomp;
-    $chars{'\n'}++;
+    $removed = chomp;
+    $chars{'\n'}++ if $removed == 1;
     for my $char (split('', $_)) {
         $chars{$char}++;   
     }
@@ -13,7 +13,7 @@ while (<>) {
 
 my @sortKeys = (sort {$chars{$b} <=> $chars{$a}} keys %chars);
 
-print "The most number is $chars{$sortKeys[0]}:\n";
+print "\nThe most number is $chars{$sortKeys[0]}:\n";
 for my $char (@sortKeys) {
     if ($chars{$sortKeys[0]} == $chars{$char}) {
         print $char  . "\n";
