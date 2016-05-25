@@ -1,0 +1,22 @@
+#!/usr/bin/perl - w
+use strict;
+
+
+#print "yes" if ( int($ARGV[0]));
+#print int($ARGV) . "\n";
+#print sdf if ('');
+
+ 
+my $k = "fdgh\n";
+my $j = chomp $k;
+print $j;
+my $d = "gshjk";
+my $s = chomp $d;
+print $s;
+
+
+
+
+
+
+#print $_ . '  ' . $port_serv{$_} . "\n" for ( keys (%port_serv) );
