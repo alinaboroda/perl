@@ -4,8 +4,7 @@ use strict;
 
 my ($inputFile, $count, $outputFile) = @ARGV;
 
-die "You don't enter a name of file.\n" unless (defined $inputFile);
-die "You don't enter a number of requests for each host.\n" unless (defined $count);
+die "You don't enter a name of file.\n" unles;
 
 my (@ping, $max_time, $loss, $ip);
 
